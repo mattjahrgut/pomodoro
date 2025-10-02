@@ -13,6 +13,7 @@ class PomodoroTimer {
         this.timer = null;
         this.sessionCount = 0;
         this.sessionsBeforeLongBreak = 4;
+        this.focusTarget = 4;
         this.autoMode = false;
         
         this.initializeElements();
@@ -36,9 +37,8 @@ class PomodoroTimer {
         this.shortBreakDurationInput = document.getElementById('short-break-duration');
         this.longBreakDurationInput = document.getElementById('long-break-duration');
         this.sessionsBeforeLongBreakInput = document.getElementById('sessions-before-long-break');
+        this.focusTargetInput = document.getElementById('focus-target');
         
-        // Mode buttons
-        this.modeButtons = document.querySelectorAll('.mode-btn');
     }
     
     bindEvents() {
@@ -46,20 +46,14 @@ class PomodoroTimer {
         this.resetBtn.addEventListener('click', () => this.resetTimer());
         this.autoBtn.addEventListener('click', () => this.toggleAutoMode());
         
-        // Mode selection
-        this.modeButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if (!this.isRunning) {
-                    this.switchMode(e.target.dataset.mode);
-                }
-            });
-        });
+        // Mode selection removed - sessions are now automatic
         
         // Settings inputs
         this.workDurationInput.addEventListener('change', () => this.updateModeDuration('work', this.workDurationInput.value));
         this.shortBreakDurationInput.addEventListener('change', () => this.updateModeDuration('short-break', this.shortBreakDurationInput.value));
         this.longBreakDurationInput.addEventListener('change', () => this.updateModeDuration('long-break', this.longBreakDurationInput.value));
         this.sessionsBeforeLongBreakInput.addEventListener('change', () => this.updateSessionsBeforeLongBreak(this.sessionsBeforeLongBreakInput.value));
+        this.focusTargetInput.addEventListener('change', () => this.updateFocusTarget(this.focusTargetInput.value));
     }
     
     updateModeDuration(mode, minutes) {
@@ -71,6 +65,11 @@ class PomodoroTimer {
     
     updateSessionsBeforeLongBreak(sessions) {
         this.sessionsBeforeLongBreak = parseInt(sessions);
+    }
+    
+    updateFocusTarget(target) {
+        this.focusTarget = parseInt(target);
+        this.updateSessionCount();
     }
     
     toggleAutoMode() {
@@ -94,15 +93,9 @@ class PomodoroTimer {
         this.totalTime = this.timeLeft;
         this.updateDisplay();
         this.updateProgressRing();
-        this.updateModeButtons();
         this.updateModeClass();
     }
     
-    updateModeButtons() {
-        this.modeButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.mode === this.currentMode);
-        });
-    }
     
     updateModeClass() {
         this.timerCard.className = 'timer-card';
@@ -192,7 +185,7 @@ class PomodoroTimer {
     }
     
     updateSessionCount() {
-        this.sessionCountDisplay.textContent = this.sessionCount;
+        this.sessionCountDisplay.textContent = `${this.sessionCount}/${this.focusTarget}`;
     }
     
     playNotificationSound() {

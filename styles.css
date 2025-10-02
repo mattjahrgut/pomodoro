@@ -35,35 +35,6 @@ body {
     font-weight: 600;
 }
 
-.mode-selector {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 40px;
-    justify-content: center;
-}
-
-.mode-btn {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    background: #f0f0f0;
-    color: #666;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.mode-btn:hover {
-    background: #e0e0e0;
-    transform: translateY(-2px);
-}
-
-.mode-btn.active {
-    background: #667eea;
-    color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
 
 .timer-display {
     margin-bottom: 40px;
@@ -265,10 +236,6 @@ body {
         font-size: 2.5rem;
     }
     
-    .mode-selector {
-        flex-direction: column;
-        gap: 8px;
-    }
     
     .controls {
         flex-direction: column;
