@@ -16,16 +16,55 @@ body {
 
 .container {
     width: 100%;
-    max-width: 500px;
+    max-width: 1000px;
+    text-align: center;
 }
 
-.timer-card {
+.header-container {
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header-container .title {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: 0;
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.main-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-section {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 40px 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     text-align: center;
+    min-width: 400px;
+}
+
+.sidebar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    max-width: 350px;
 }
 
 .title {
@@ -35,6 +74,11 @@ body {
     font-weight: 600;
 }
 
+
+.auto-control {
+    margin-bottom: 20px;
+    text-align: center;
+}
 
 .timer-display {
     margin-bottom: 40px;
@@ -163,6 +207,18 @@ body {
     box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
 }
 
+.end-btn {
+    background: #9c27b0;
+    color: white;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+}
+
+.end-btn:hover {
+    background: #7b1fa2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(156, 39, 176, 0.4);
+}
+
 .session-info {
     margin-bottom: 30px;
     padding: 20px;
@@ -223,9 +279,53 @@ body {
 }
 
 /* Responsive design */
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .timer-section {
+        min-width: auto;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .sidebar {
+        min-width: auto;
+        max-width: 400px;
+        width: 100%;
+    }
+    
+    .header-container {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+    
+    .header-container .title {
+        font-size: 2.2rem;
+        padding: 12px 20px;
+    }
+}
+
 @media (max-width: 600px) {
-    .timer-card {
+    .header-container {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .header-container .title {
+        font-size: 2rem;
+        padding: 10px 18px;
+    }
+    
+    .timer-section {
         padding: 30px 20px;
+    }
+    
+    .sidebar {
+        padding: 20px;
     }
     
     .title {
@@ -235,7 +335,6 @@ body {
     .time {
         font-size: 2.5rem;
     }
-    
     
     .controls {
         flex-direction: column;

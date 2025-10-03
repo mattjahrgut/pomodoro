@@ -27,6 +27,7 @@ class PomodoroTimer {
         this.modeLabel = document.getElementById('mode-label');
         this.startBtn = document.getElementById('start-btn');
         this.resetBtn = document.getElementById('reset-btn');
+        this.endBtn = document.getElementById('end-btn');
         this.autoBtn = document.getElementById('auto-btn');
         this.sessionCountDisplay = document.getElementById('session-count');
         this.progressRing = document.querySelector('.progress-ring-progress');
@@ -44,6 +45,7 @@ class PomodoroTimer {
     bindEvents() {
         this.startBtn.addEventListener('click', () => this.toggleTimer());
         this.resetBtn.addEventListener('click', () => this.resetTimer());
+        this.endBtn.addEventListener('click', () => this.endSession());
         this.autoBtn.addEventListener('click', () => this.toggleAutoMode());
         
         // Mode selection removed - sessions are now automatic
@@ -139,6 +141,13 @@ class PomodoroTimer {
         this.totalTime = this.timeLeft;
         this.updateDisplay();
         this.updateProgressRing();
+    }
+    
+    endSession() {
+        if (this.isRunning) {
+            this.pauseTimer();
+        }
+        this.completeSession();
     }
     
     completeSession() {

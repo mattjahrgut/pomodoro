@@ -8,62 +8,74 @@
 </head>
 <body>
     <div class="container">
-        <div class="timer-card">
-            <h1 class="title">🍅 Pomodoro Timer</h1>
-            
-            <div class="timer-display">
-                <div class="time-circle">
-                    <svg class="progress-ring" width="300" height="300">
-                        <circle class="progress-ring-background" cx="150" cy="150" r="140"></circle>
-                        <circle class="progress-ring-progress" cx="150" cy="150" r="140"></circle>
-                    </svg>
-                    <div class="time-text">
-                        <span class="time" id="time-display">25:00</span>
-                        <span class="mode-label" id="mode-label">Focus Time</span>
+        <div class="header-container">
+            <h1 class="title">🍎 Pomodoro Timer</h1>
+        </div>
+        
+        <div class="main-content">
+            <div class="timer-section">
+                <div class="auto-control">
+                    <button class="control-btn auto-btn" id="auto-btn">
+                        <span class="btn-text">Auto: OFF</span>
+                    </button>
+                </div>
+
+                <div class="timer-display">
+                    <div class="time-circle">
+                        <svg class="progress-ring" width="300" height="300">
+                            <circle class="progress-ring-background" cx="150" cy="150" r="140"></circle>
+                            <circle class="progress-ring-progress" cx="150" cy="150" r="140"></circle>
+                        </svg>
+                        <div class="time-text">
+                            <span class="time" id="time-display">25:00</span>
+                            <span class="mode-label" id="mode-label">Focus Time</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="controls">
-                <button class="control-btn start-btn" id="start-btn">
-                    <span class="btn-text">Start</span>
-                </button>
-                <button class="control-btn reset-btn" id="reset-btn">
-                    <span class="btn-text">Reset</span>
-                </button>
-                <button class="control-btn auto-btn" id="auto-btn">
-                    <span class="btn-text">Auto: OFF</span>
-                </button>
-            </div>
-
-            <div class="session-info">
-                <div class="session-counter">
-                    <span class="counter-label">Focus Progress:</span>
-                    <span class="counter-value" id="session-count">0/4</span>
+                <div class="controls">
+                    <button class="control-btn start-btn" id="start-btn">
+                        <span class="btn-text">Start</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="reset-btn">
+                        <span class="btn-text">Reset</span>
+                    </button>
+                    <button class="control-btn end-btn" id="end-btn">
+                        <span class="btn-text">End</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="settings">
-                <h3>Settings</h3>
-                <div class="setting-group">
-                    <label for="work-duration">Work Duration (minutes):</label>
-                    <input type="number" id="work-duration" min="1" max="60" value="25">
+            <div class="sidebar">
+                <div class="session-info">
+                    <div class="session-counter">
+                        <span class="counter-label">Focus Progress:</span>
+                        <span class="counter-value" id="session-count">0/4</span>
+                    </div>
                 </div>
-                <div class="setting-group">
-                    <label for="short-break-duration">Short Break (minutes):</label>
-                    <input type="number" id="short-break-duration" min="1" max="30" value="5">
-                </div>
-                <div class="setting-group">
-                    <label for="long-break-duration">Long Break (minutes):</label>
-                    <input type="number" id="long-break-duration" min="1" max="60" value="15">
-                </div>
-                <div class="setting-group">
-                    <label for="sessions-before-long-break">Sessions before Long Break:</label>
-                    <input type="number" id="sessions-before-long-break" min="2" max="10" value="4">
-                </div>
-                <div class="setting-group">
-                    <label for="focus-target">Focus Target (sessions):</label>
-                    <input type="number" id="focus-target" min="1" max="20" value="4">
+
+                <div class="settings">
+                    <h3>Settings</h3>
+                    <div class="setting-group">
+                        <label for="work-duration">Work Duration (minutes):</label>
+                        <input type="number" id="work-duration" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting-group">
+                        <label for="short-break-duration">Short Break (minutes):</label>
+                        <input type="number" id="short-break-duration" min="1" max="30" value="5">
+                    </div>
+                    <div class="setting-group">
+                        <label for="long-break-duration">Long Break (minutes):</label>
+                        <input type="number" id="long-break-duration" min="1" max="60" value="15">
+                    </div>
+                    <div class="setting-group">
+                        <label for="sessions-before-long-break">Sessions before Long Break:</label>
+                        <input type="number" id="sessions-before-long-break" min="2" max="10" value="4">
+                    </div>
+                    <div class="setting-group">
+                        <label for="focus-target">Focus Target (sessions):</label>
+                        <input type="number" id="focus-target" min="1" max="20" value="4">
+                    </div>
                 </div>
             </div>
         </div>
