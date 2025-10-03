@@ -185,6 +185,18 @@ body {
     box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
 }
 
+.end-btn {
+    background: #9c27b0;
+    color: white;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+}
+
+.end-btn:hover {
+    background: #7b1fa2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(156, 39, 176, 0.4);
+}
+
 .auto-btn {
     background: #9e9e9e;
     color: white;
@@ -224,6 +236,28 @@ body {
     padding: 20px;
     background: rgba(102, 126, 234, 0.1);
     border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings-toggle-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.settings-toggle-btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 .counter-label {
@@ -243,6 +277,12 @@ body {
     background: rgba(0, 0, 0, 0.05);
     padding: 20px;
     border-radius: 15px;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.settings.visible {
+    display: block;
 }
 
 .settings h3 {
@@ -334,6 +374,12 @@ body {
     
     .time {
         font-size: 2.5rem;
+    }
+    
+    .session-info {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
     }
     
     .controls {

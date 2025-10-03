@@ -32,6 +32,8 @@ class PomodoroTimer {
         this.sessionCountDisplay = document.getElementById('session-count');
         this.progressRing = document.querySelector('.progress-ring-progress');
         this.timerCard = document.querySelector('.timer-card');
+        this.settingsToggleBtn = document.getElementById('settings-toggle-btn');
+        this.settingsPanel = document.getElementById('settings-panel');
         
         // Settings inputs
         this.workDurationInput = document.getElementById('work-duration');
@@ -47,6 +49,7 @@ class PomodoroTimer {
         this.resetBtn.addEventListener('click', () => this.resetTimer());
         this.endBtn.addEventListener('click', () => this.endSession());
         this.autoBtn.addEventListener('click', () => this.toggleAutoMode());
+        this.settingsToggleBtn.addEventListener('click', () => this.toggleSettings());
         
         // Mode selection removed - sessions are now automatic
         
@@ -87,6 +90,10 @@ class PomodoroTimer {
             this.autoBtn.classList.remove('active');
             this.autoBtn.innerHTML = '<span class="btn-text">Auto: OFF</span>';
         }
+    }
+    
+    toggleSettings() {
+        this.settingsPanel.classList.toggle('visible');
     }
     
     switchMode(mode) {
